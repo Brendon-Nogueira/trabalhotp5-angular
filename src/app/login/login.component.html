@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="content-form">
+    <form>
+        <label >Nome:</label>
+        <input type="text"  name="user" placeholder="Digite o nome do seu usuario"  [(ngModel)]="myUser.user">
+
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Digite a senha" [(ngModel)]="myUser.pass">
+
+        <input type="submit" name="submit" value="login">
+    </form>
+</div>

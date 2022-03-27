@@ -9,11 +9,10 @@ import { User } from './user';
 })
 export class LoginComponent implements OnInit {
 
-  myUser : User = {} as User
-  myClub : Times = {} as Times
-  
   ngOnInit(): void {
   }
+  myUser : User = {} as User
+  myClub : Times = {} as Times
 
   validaLogin(Usuario : string , Password : string  ){
     if(Usuario != 'admin' && Password != 'pass'){

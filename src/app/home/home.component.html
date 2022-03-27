@@ -1,11 +1,14 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo right">Voto-club</a>
+      <a routerLink="" class="brand-logo right">Voto-club</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href=""></a> Home</li>
-        <li><a href="">Grafico</a></li>
-        <li><a href="">Login</a></li>
+        <li><a  routerLink="" ></a> Home</li>
+        <li><a  routerLink="/grafico-times">Grafico</a></li>
+        <li><a  routerLink="/login">Login</a></li>
       </ul>
     </div>
   </nav>
         
+  <div>
+    <router-outlet></router-outlet>
+  </div>

@@ -7,20 +7,25 @@ import { GraficoTimesComponent } from './grafico-times/grafico-times.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import {  NgChartsModule } from 'ng2-charts';
+import { CadastroTimesComponent } from './cadastro-times/cadastro-times.component';
+import { AuthService } from './login/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     GraficoTimesComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    CadastroTimesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Times } from '../login/times';
+
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'cadastro-times',
+  templateUrl: './cadastro-times.component.html',
+  styleUrls: ['./cadastro-times.component.css']
 })
-export class HomeComponent implements OnInit {
+export class CadastroTimesComponent implements OnInit {
 
-  dadosSalvos: any
   meuTime : Times = {} as Times
-  chave: string = "time"
   listaTime : Times[] = []
-
+  dadosSalvos: any
+  chave: string = "time"
+  
   constructor() { }
+
+  salvarTimes(myForm: NgForm) {
+    
+    //Adiciona a lista de times o novo time
+    this.meuTime.votos = 0
+    this.listaTime.push(this.meuTime)
+    this.meuTime = {} as Times
+
+    //Envia ao localStorage, com a chave time a lista de objetos
+    localStorage.setItem(this.chave, JSON.stringify(this.listaTime))
+
+    //Reseta o formulário
+    myForm.resetForm()
+  }
 
   ngOnInit(): void {
     this.dadosSalvos = localStorage.getItem(this.chave)
@@ -32,5 +48,7 @@ export class HomeComponent implements OnInit {
       }
     }
   }
+
+  
 
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Times } from './times';
+import { AuthService } from './auth.service';
 import { User } from './user';
+
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,35 @@ import { User } from './user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  constructor(private authService : AuthService){
 
-  ngOnInit(): void {
   }
-  myUser : User = {} as User
-  myClub : Times = {} as Times
 
-  validaLogin(Usuario : string , Password : string  ){
+  myUser : User = {} as User
+  usersList : User = {} as User
+
+   /*validaLogin(Usuario : string , Password : string  ){
     if(Usuario != 'admin' && Password != 'pass'){
       console.log('usuario', Usuario, 'esta incorreto')
     }
-  }
-
-  salvarTimes(form: NgForm) {
+  }*/
+  ngOnInit(): void {
     
+    }
+
+    saveUser(){
+      
+    }
   }
 
 
-}
+ 
+
+  
+
+
+  
+
+
+

@@ -19,7 +19,8 @@
 
 <div>
     <ul>
-        <li *ngFor="let time of listaTime">
+        <li *ngFor="let time of listaTime; let current = index">
+            <p>Time {{current + 1}}</p>
             <p>Nome: {{time.nome}}</p>
             <p>Cidade: {{time.cidade}}</p>
             <p>Estado: {{time.estado}}</p>

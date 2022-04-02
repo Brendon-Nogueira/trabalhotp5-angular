@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Times } from './times';
 import { User } from './user';
 
@@ -18,6 +19,11 @@ export class LoginComponent implements OnInit {
     if(Usuario != 'admin' && Password != 'pass'){
       console.log('usuario', Usuario, 'esta incorreto')
     }
+  }
+
+  salvarTimes(form: NgForm) {
     
   }
+
+
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Times } from '../login/times';
+import { Votos } from './votacao';
+
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
@@ -9,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   dadosSalvos: any
   meuTime : Times = {} as Times
+  meuVoto : Votos = {} as Votos
   chave: string = "time"
   listaTime : Times[] = []
 
@@ -33,4 +37,23 @@ export class HomeComponent implements OnInit {
     }
   }
 
+    validaVoto(myForm: NgForm) {
+      //Valida se voto não é vazio
+      if(this.meuVoto.timeVoto) {
+        for(let i = 0; i < this.listaTime.length;i++) {
+          //Verifica se o voto 
+          if(this.meuVoto.timeVoto == i+1) {
+            console.log(this.meuVoto.timeVoto, i+1)
+            this.listaTime[i].votos++ 
+          }
+        }
+      }
+      //Envia ao localStorage, com a chave time a lista de objetos
+      localStorage.setItem(this.chave, JSON.stringify(this.listaTime))
+
+      //Reseta o formulário
+      myForm.resetForm()
+    }
 }
+
+

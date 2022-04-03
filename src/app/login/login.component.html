@@ -1,6 +1,6 @@
-<div class="content-form">
-    <form #mUser="ngForm" (submit)="saveUser(mUser)">
-        <label >Nome:</label>
+<div class="login">
+    <form #mUser="ngForm" (submit)="doLogin()">
+        <label >login:</label>
         <input type="text"  name="user" placeholder="Digite o nome do seu usuario"  [(ngModel)]="myUser.name">
 
         <label>senha:</label>

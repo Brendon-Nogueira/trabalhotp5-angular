@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import {  NgChartsModule } from 'ng2-charts';
 import { CadastroTimesComponent } from './cadastro-times/cadastro-times.component';
 import { AuthService } from './login/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { AuthService } from './login/auth.service';
     FormsModule,
     NgChartsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

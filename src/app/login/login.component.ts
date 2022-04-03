@@ -12,17 +12,9 @@ import { User } from './user';
 export class LoginComponent implements OnInit {
 
   myUser : User = {} as User
-  usersList : User[] = []
 
-  constructor(private authService : AuthService){
-
-  }
-
-  saveUser(mUser : NgForm){
-     this.usersList.push(this.myUser)
-     this.myUser = {} as User
-     mUser.resetForm()
-  }
+  constructor(private authService : AuthService){}
+  
   ngOnInit(): void { }
 
   doLogin(){

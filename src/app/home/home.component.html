@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-      <a routerLink="" class="brand-logo right">Voto-club</a>
+      <a routerLink="" class="brand-logo right">VotoClub</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a  routerLink="/login">Login</a></li>
         <li><a  routerLink="/home" ></a> Votação</li>
@@ -12,3 +12,31 @@
   <div>
     <router-outlet></router-outlet>
   </div>
+
+  <h1>Bem Vindo ao Voto-club!</h1>
+
+  <div>
+    <form #myForm= "ngForm" (submit)="validaVoto(myForm)">
+      <h3>Por favor, insira o número do time que deseja votar:</h3><br>
+      <input type="number" placeholder="O número do time" name="voto" [(ngModel)]="meuVoto.timeVoto">
+      <div>
+        <p>Digite um número de time válido</p>
+      </div>
+      <input type="submit" value="Votar" name="votar">
+    </form>
+  </div>
+
+  <div>
+    <div *ngIf="listaTime.length == 0">
+
+    </div>
+    <ul>
+        <li *ngFor="let time of listaTime; let current = index">
+            <p>Time {{current + 1}}</p>
+            <p>Nome: {{time.nome}}</p>
+            <p>Cidade: {{time.cidade}}</p>
+            <p>Estado: {{time.estado}}</p>
+            <p>Votos: {{time.votos}}</p>
+        </li>
+    </ul>
+</div>

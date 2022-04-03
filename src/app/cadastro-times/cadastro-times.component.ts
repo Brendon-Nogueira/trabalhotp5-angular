@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Times } from '../login/times';
 
 @Component({
-  selector: 'cadastro-times',
+  selector: 'cadastro',
   templateUrl: './cadastro-times.component.html',
   styleUrls: ['./cadastro-times.component.css']
 })

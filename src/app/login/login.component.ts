@@ -10,26 +10,26 @@ import { User } from './user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
+  myUser : User = {} as User
+  usersList : User[] = []
+
   constructor(private authService : AuthService){
 
   }
 
-  myUser : User = {} as User
-  usersList : User = {} as User
+  saveUser(mUser : NgForm){
+     this.usersList.push(this.myUser)
+     this.myUser = {} as User
+     mUser.resetForm()
+  }
+  ngOnInit(): void { }
 
-   /*validaLogin(Usuario : string , Password : string  ){
-    if(Usuario != 'admin' && Password != 'pass'){
-      console.log('usuario', Usuario, 'esta incorreto')
-    }
-  }*/
-  ngOnInit(): void {
-    
-    }
+  doLogin(){
+   this.authService.doLogin(this.myUser)
+  }
 
-    saveUser(){
-      
-    }
+   
   }
 
 

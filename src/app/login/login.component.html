@@ -1,12 +1,28 @@
 <div class="login">
-    <form #mUser="ngForm" (submit)="doLogin()">
-        <label >login:</label>
-        <input type="text"  name="user" placeholder="Digite o nome do seu usuario"  [(ngModel)]="myUser.name">
+    <form #mUser="ngForm" (submit)="doLogin()" class="card">
+        <div class="card-header">
+        <label> 
+            <h2>login</h2>
+        </label>
+        </div>
 
-        <label>senha:</label>
-        <input type="password" name="password" placeholder="Digite a senha" [(ngModel)]="myUser.pass">
+        <div class="card-content">
+            <div class="card-content-area">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="user" name="user" placeholder="Digite o nome do seu usuario"  [(ngModel)]="myUser.name">
+            </div>
+        </div>
 
-        <input type="submit" name="submit" value="login">
+        <div class="card-content-area">
+            <label>senha:</label>
+            <input type="password" id="pass" name="password" placeholder="Digite a senha" [(ngModel)]="myUser.pass">
+            
+        </div>
+
+        <div class="card-footer">
+            <input type="submit"  name="submit" value="login" id="btn">
+            <a href="#" class="recuperar_senha">Esqueceu sua senha?</a>
+        </div>  
     </form>
 </div>
 

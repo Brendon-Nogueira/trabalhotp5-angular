@@ -1,29 +1,84 @@
-<h1> Cadastro de Times </h1>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-<div class="content-form">
-    <form #myForm= "ngForm" (submit)= "salvarTimes(myForm)">
-        <label for="nomeTime">Nome:</label>
-        <input type="text"  name="user" id="nomeTime" placeholder="Digite o nome"  [(ngModel)]="meuTime.nome">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Times</title>
+</head>
 
-        <label for="cidadeTime">Cidade:</label>
-        <input type="text" name="cidade" id="cidadeTime" placeholder="Digite a cidade" [(ngModel)]="meuTime.cidade">
+<body>
+    <header id="header">
+        <nav id="nav">
+          <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
+            <span id="hamburger"></span>
+          </button>
+          <ul id="menu" role="menu">
+            <a routerLink="/home" id="logo">VotoClub</a>
+            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/grafico-times">Gráfico</a></li>
+          </ul>
+        </nav>
+    </header> 
+      
+    <h1> Cadastro de Times </h1>
 
-        <label for="estadoTime">Estado:</label>
-        <input type="text" name="ano" id= "estadoTime" placeholder="Digite o estado" [(ngModel)]="meuTime.estado">
+    <div class="content-form">
+       <form #myForm="ngForm" (submit)="salvarTimes(myForm)"> 
+            <div>
+                <label for="nomeTime">Clube:</label>
+                <input type="text" name="nome" id="nomeTime" 
+                placeholder="Digite o nome" #nome= "ngModel" [(ngModel)]="meuTime.nome" required>
+            </div>
+            <div *ngIf="nome.dirty || nome.touched">
+                <p *ngIf="nome.errors?.['required']">Campo obrigatório</p>
+              </div>
+            <div>
+                <label for="cidadeTime">Cidade:</label>
+                <input type="text" name="cidade" id="cidadeTime" 
+                placeholder="Digite a cidade" #cidade= "ngModel" [(ngModel)]="meuTime.cidade" required>
+            </div>
+            <div *ngIf="cidade.dirty || cidade.touched">
+                <p *ngIf="cidade.errors?.['required']">Campo obrigatório</p>
+              </div>
+            <div>
+                <label for="estadoTime">Estado:</label>
+                <input type="text" name="estado" id="estadoTime" 
+                placeholder="Digite o estado" #estado="ngModel" [(ngModel)]="meuTime.estado" required>
+            </div>
+            <div *ngIf="estado.dirty || estado.touched">
+                <p *ngIf="estado.errors?.['required']">Campo obrigatório</p>
+              </div>
+            <input type="submit" name="submit" value="save" id="cadastro-button"
+                [disabled]="myForm.invalid">
+        </form>
+    </div>
 
-        <input type="submit" name="submit" value="save">
-    </form>
-</div>
 
-<h2> Times Cadastrados </h2>
+    <div *ngIf="listaTime.length > 0" id="Tabelinha">
+        <h2> Times Cadastrados </h2>
 
-<div>
-    <ul>
-        <li *ngFor="let time of listaTime; let current = index">
-            <p>Time {{current + 1}}</p>
-            <p>Nome: {{time.nome}}</p>
-            <p>Cidade: {{time.cidade}}</p>
-            <p>Estado: {{time.estado}}</p>
-        </li>
-    </ul>
-</div>
+      
+        <table>
+          <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let time of listaTime">
+              <td>{{ time.nome }}</td>
+              <td>{{ time.cidade }}</td>
+              <td>{{ time.estado }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+   
+</body>
+
+</html>

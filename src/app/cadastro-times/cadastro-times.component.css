@@ -141,3 +141,17 @@ section .txt{
   font-family: sans-serif;
   color: #0e0b16;
 }
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.Tabelinha {
+    padding: 34px;
+}

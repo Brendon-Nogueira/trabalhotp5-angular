@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+</head>
+<body>
 <header id="header">
   <nav id="nav">
     <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
@@ -16,24 +18,23 @@
       <li><a routerLink="/grafico-times">Gráfico</a></li>
     </ul>
   </nav>
-</header>
-</head>
-<body> 
+</header> 
 <div>
   <div class="home">
     <h1>Bem vindo à pesquisa de torcedores!!</h1>
-    <br><br><br>
-    <img id="torcida" src="/assets/images/futebol.jpg">
+    <br>
+    <img id="torcida" src="/assets/images/futebol2.jpg">
+    
   </div>
   <form #myForm="ngForm" (submit)="validaVoto(myForm)">
     <h3>Por favor, insira o número do time que deseja votar:</h3><br>
     <input type="number" placeholder="O número do time" name="voto" [(ngModel)]="meuVoto.timeVoto">
     <div>
-      <p *ngIf="meuVoto.timeVoto == 0 || meuVoto.timeVoto > listaTime.length">
+      <p *ngIf="meuVoto.timeVoto <= 0 || meuVoto.timeVoto > listaTime.length">
         Digite um número de time válido
       </p>
-    </div>
     <input type="submit" value="Votar" name="votar" id="voto-button">
+  </div>
   </form>
 </div>
 <div>

@@ -11,9 +11,9 @@ export class GraficoTimesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.tabela()
+    //this.tabela()
   }
-
+/*
   tabela() {
     let ctx = document.getElementById('chart').getContext('2d');
     let myChart = new Chart(ctx, {
@@ -53,5 +53,5 @@ export class GraficoTimesComponent implements OnInit {
       }
     });
   }
-
+*/
 }

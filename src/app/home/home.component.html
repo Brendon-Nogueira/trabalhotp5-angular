@@ -1,44 +1,55 @@
-<nav>
-    <div>
-      <a routerLink="" >VotoClub</a>
-      <ul id="nav-mobile">
-        <li><a  routerLink="" ></a> Home</li>
-        <li><a  routerLink="/login">Login</a></li>
-       <li><a  routerLink="/grafico-times">Grafico</a></li>
-      </ul>
-    </div>
-  </nav>
-        
-  <div>
-    <router-outlet></router-outlet>
-  </div>
-
-  <h1>Bem Vindo ao Voto-club!</h1>
-
-  <div>
-    <form #myForm= "ngForm" (submit)="validaVoto(myForm)">
-      <h3>Por favor, insira o número do time que deseja votar:</h3><br>
-      <input type="number" placeholder="O número do time" name="voto" [(ngModel)]="meuVoto.timeVoto">
-      <div>
-        <p *ngIf="meuVoto.timeVoto == 0 || meuVoto.timeVoto > listaTime.length">
-          Digite um número de time válido
-        </p>
-      </div>
-      <input type="submit" value="Votar" name="votar">
-    </form>
-  </div>
-
-  <div>
-    <div *ngIf="listaTime.length == 0">
-
-    </div>
-    <ul>
-        <li *ngFor="let time of listaTime; let current = index">
-            <p>Time {{current + 1}}</p>
-            <p>Nome: {{time.nome}}</p>
-            <p>Cidade: {{time.cidade}}</p>
-            <p>Estado: {{time.estado}}</p>
-            <p>Votos: {{time.votos}}</p>
-        </li>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+<header id="header">
+  <nav id="nav">
+    <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
+      <span id="hamburger"></span>
+    </button>
+    <ul id="menu" role="menu">
+      <a routerLink="" id="logo">VotoClub</a>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/grafico-times">Gráfico</a></li>
     </ul>
+  </nav>
+</header>
+</head>
+<body> 
+<div>
+  <div class="home">
+    <h1>Bem vindo à pesquisa de torcedores!!</h1>
+    <br><br><br>
+    <img id="torcida" src="/assets/images/futebol.jpg">
+  </div>
+  <form #myForm="ngForm" (submit)="validaVoto(myForm)">
+    <h3>Por favor, insira o número do time que deseja votar:</h3><br>
+    <input type="number" placeholder="O número do time" name="voto" [(ngModel)]="meuVoto.timeVoto">
+    <div>
+      <p *ngIf="meuVoto.timeVoto == 0 || meuVoto.timeVoto > listaTime.length">
+        Digite um número de time válido
+      </p>
+    </div>
+    <input type="submit" value="Votar" name="votar" id="voto-button">
+  </form>
 </div>
+<div>
+  <div *ngIf="listaTime.length == 0">
+    <p> Sem times cadastrados </p>
+  </div>
+  <ul>
+    <li *ngFor="let time of listaTime; let current = index" id="Listagem-times">
+      <p>Time {{current + 1}}</p>
+      <p>Nome: {{time.nome}}</p>
+      <p>Cidade: {{time.cidade}}</p>
+      <p>Estado: {{time.estado}}</p>
+      <p>Votos: {{time.votos}}</p>
+    </li>
+  </ul>
+</div>
+</body>
+
+</html>

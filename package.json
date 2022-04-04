@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "node server",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -24,9 +24,11 @@
     "@angular/router": "~13.2.0",
     "angular2-materialize": "^15.1.10",
     "chart.js": "^3.7.1",
+    "express": "^4.17.3",
     "jquery": "^2.2.4",
     "materialize-css": "^1.0.0",
     "ng2-charts": "^3.0.8",
+    "path": "^0.12.7",
     "rxjs": "~7.5.0",
     "save": "^2.4.0",
     "tslib": "^2.3.0",

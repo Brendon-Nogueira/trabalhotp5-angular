@@ -20,7 +20,9 @@
       <h3>Por favor, insira o número do time que deseja votar:</h3><br>
       <input type="number" placeholder="O número do time" name="voto" [(ngModel)]="meuVoto.timeVoto">
       <div>
-        <p>Digite um número de time válido</p>
+        <p *ngIf="meuVoto.timeVoto == 0 || meuVoto.timeVoto > listaTime.length">
+          Digite um número de time válido
+        </p>
       </div>
       <input type="submit" value="Votar" name="votar">
     </form>
